@@ -1,6 +1,8 @@
 # SIMPRE_CC_Proiect
 
 **Proiect Cloud Computing — Ivan Camelia - 1146**
+Link video: https://drive.google.com/file/d/1n9yHlzIic_8MD5IKVkqz7HlYtneU7asf/view?usp=sharing
+Link vercel : https://simpre-cc-proiect.vercel.app?_vercel_share=qG06OT7WyEHq0izGrSabu0CJrekaolY1
 
 ## 1. Introducere
 
