@@ -1,6 +1,6 @@
 # SIMPRE_CC_Proiect
 
-**Proiect Cloud Computing — Ivan Camelia**
+**Proiect Cloud Computing — Ivan Camelia - 1146**
 
 ## 1. Introducere
 
