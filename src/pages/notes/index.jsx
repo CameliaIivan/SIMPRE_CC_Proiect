@@ -60,43 +60,59 @@ export default function Notes({ setIsLogin }) {
   return (
     <div className="min-h-screen">
       <NavBar setIsLogin={setIsLogin} />
-      <div className="min-h-[calc(100vh-64px)] flex items-center justify-center bg-gradient-to-r from-white to-blue-500">
-        <section className="max-w-7xl mx-auto mt-4 flex flex-wrap justify-around p-6">
-          {error && <p className="text-red-500 mb-4">{error}</p>}
+      <main className="dreamy-page min-h-[calc(100vh-80px)] px-4 py-12">
+        <section className="mx-auto max-w-7xl">
+          <div className="mb-10 text-center">
+            <p className="text-sm font-bold uppercase tracking-[0.45em] text-pink-400">Your soft workspace</p>
+            <h1 className="mt-3 bg-gradient-to-r from-rose-500 via-pink-500 to-fuchsia-600 bg-clip-text text-5xl font-black text-transparent">
+              Notes with a little sparkle
+            </h1>
+            <p className="mx-auto mt-3 max-w-2xl text-pink-950/70">
+              Capture ideas, plans, and reminders in a cozy board made for calm productivity.
+            </p>
+          </div>
+          {error && <p className="mx-auto mb-6 max-w-xl rounded-2xl bg-rose-100 p-4 text-center font-semibold text-rose-600">{error}</p>}
           {notes.length === 0 ? (
-            <div className="text-center w-full">
-              <p className="text-gray-200 text-lg mb-4 drop-shadow-md">No notes found. Create a new note!</p>
-              <Link href="/notes/create" className="bg-black text-white p-3 rounded-lg hover:bg-blue-700 transition duration-300 shadow-md hover:shadow-lg">
+             <div className="glass-card mx-auto max-w-xl rounded-[2rem] p-10 text-center">
+              <div className="mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-full bg-pink-100 text-4xl">♡</div>
+              <p className="mb-6 text-lg font-semibold text-pink-950/75">No notes found. Create a new note!</p>
+              <Link href="/notes/create" className="pretty-button inline-block px-8 py-3">
                 Create New Note
               </Link>
             </div>
           ) : (
-            notes.map((note) => (
-              <div
-                key={note._id}
-                className="w-72 bg-gradient-to-br from-gray-400 to-blue-800 text-white shadow-md p-4 m-4 relative rounded-xl"
-              >
-                <h4 className="truncate text-lg font-semibold">{note.title}</h4>
-                <div className="h-36 overflow-hidden">
-                  <p className="text-gray-300">{note.content}</p>
-                </div>
-                <div className="flex justify-between items-center mt-2">
-                  <span className="text-gray-400">{formatDate(note.date)}</span>
-                  <Link href={`/notes/edit/${note._id}`} className="text-blue-300 hover:text-blue-500 transition">
-                    Edit
-                  </Link>
-                </div>
-                <button
-                  onClick={() => deleteNote(note._id)}
-                  className="absolute top-0 right-2 text-red-400 font-bold hover:text-red-600 transition"
+              <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              {notes.map((note) => (
+                <article
+                  key={note._id}
+                  className="glass-card group relative overflow-hidden rounded-[1.75rem] p-5 hover:-translate-y-1 hover:shadow-2xl hover:shadow-pink-300/40"
                 >
-                  X
-                </button>
-              </div>
-            ))
+                 <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-pink-200/60 blur-xl" />
+                  <button
+                    onClick={() => deleteNote(note._id)}
+                    className="absolute right-4 top-4 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-white/80 font-black text-rose-500 shadow-sm hover:bg-rose-500 hover:text-white"
+                    aria-label={`Delete note ${note.title}`}
+                  >
+                    ×
+                  </button>
+                  <div className="relative pr-10">
+                    <span className="mb-4 inline-flex rounded-full bg-pink-100 px-3 py-1 text-xs font-bold uppercase tracking-wider text-pink-600">
+                      {formatDate(note.date)}
+                    </span>
+                    <h4 className="truncate text-xl font-black text-pink-950">{note.title}</h4>
+                    <div className="mt-4 h-36 overflow-hidden rounded-2xl bg-white/50 p-4">
+                      <p className="text-sm leading-6 text-pink-950/70">{note.content}</p>
+                    </div>
+                    <Link href={`/notes/edit/${note._id}`} className="mt-5 inline-flex font-bold text-pink-600 hover:text-fuchsia-600">
+                      Edit note →
+                    </Link>
+                  </div>
+                </article>
+              ))}
+            </div>
           )}
         </section>
-      </div>
+      </main>
     </div>
   );
 }

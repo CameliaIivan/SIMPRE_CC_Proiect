@@ -98,13 +98,27 @@ export default function Login({ setIsLogin }) {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-to-r from-white to-blue-500">
-      <div className="bg-white shadow-2xl rounded-lg p-8 max-w-md w-full">
+    <section className="dreamy-page flex min-h-screen items-center justify-center px-4 py-12">
+      <div className="glass-card relative w-full max-w-md overflow-hidden rounded-[2rem] p-8">
+        <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-pink-200/60 blur-2xl" />
+        <div className="absolute -bottom-12 -left-10 h-36 w-36 rounded-full bg-fuchsia-200/50 blur-2xl" />
+        <div className="relative mb-8 text-center">
+          <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-3xl bg-gradient-to-br from-rose-300 via-pink-400 to-fuchsia-500 text-3xl shadow-xl shadow-pink-300/50">
+            ✿
+          </div>
+          <p className="text-xs font-bold uppercase tracking-[0.35em] text-pink-400">Cloud Notes</p>
+          <h1 className="mt-2 bg-gradient-to-r from-rose-500 via-pink-500 to-fuchsia-600 bg-clip-text text-4xl font-black text-transparent">
+            {showLogin ? 'Welcome back' : 'Join the sparkle'}
+          </h1>
+          <p className="mt-2 text-sm text-pink-900/70">
+            {showLogin ? 'Plan your day in a soft, dreamy workspace.' : 'Create your account and start saving pretty notes.'}
+          </p>
+        </div>
         {showLogin ? (
-          <form onSubmit={loginSubmit} className="space-y-4">
+          <form onSubmit={loginSubmit} className="relative space-y-5">
             <h3 className="text-2xl font-bold text-center">Log in</h3>
             <div>
-              <label className="block text-sm font-medium">Email</label>
+              <label className="mb-2 block text-sm font-bold text-pink-900">Email</label>
               <input
                 type="email"
                 name="email"
@@ -116,7 +130,7 @@ export default function Login({ setIsLogin }) {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium">Password</label>
+              <label className="mb-2 block text-sm font-bold text-pink-900">Password</label>
               <input
                 type="password"
                 name="password"
@@ -127,17 +141,14 @@ export default function Login({ setIsLogin }) {
                 placeholder="Enter password"
               />
             </div>
-            <div className="flex items-center">
-              <input type="checkbox" id="remember" className="mr-2" />
-              <label htmlFor="remember" className="text-sm">Remember me</label>
+            <div className="flex items-center rounded-full bg-white/60 px-4 py-2">
+              <input type="checkbox" id="remember" className="mr-2 accent-pink-500" />
+              <label htmlFor="remember" className="text-sm font-medium text-pink-900/75">Remember me</label>
             </div>
-            <button
-              type="submit"
-              className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
-            >
-              Sign In
+            <button type="submit" className="pretty-button w-full p-3">
+              Sign In ✨
             </button>
-            <p className="text-sm text-center">
+             <p className="text-center text-sm text-pink-900/75">
               Don't have an account?{' '}
               <span
                 onClick={() => setShowLogin(false)}
@@ -146,14 +157,14 @@ export default function Login({ setIsLogin }) {
                 Register now
               </span>
             </p>
-            {err && <p className="text-red-500 text-center">{err}</p>}
-            {success && <p className="text-green-500 text-center">{success}</p>}
+             {err && <p className="rounded-2xl bg-rose-100 p-3 text-center text-sm font-semibold text-rose-600">{err}</p>}
+            {success && <p className="rounded-2xl bg-emerald-100 p-3 text-center text-sm font-semibold text-emerald-600">{success}</p>}
           </form>
         ) : (
-          <form onSubmit={registerSubmit} className="space-y-4">
+         <form onSubmit={registerSubmit} className="relative space-y-5">
             <h3 className="text-2xl font-bold text-center">Register</h3>
             <div>
-              <label className="block text-sm font-medium">Username</label>
+             <label className="mb-2 block text-sm font-bold text-pink-900">Username</label>
               <input
                 type="text"
                 name="name"
@@ -165,7 +176,7 @@ export default function Login({ setIsLogin }) {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium">Email</label>
+              <label className="mb-2 block text-sm font-bold text-pink-900">Email</label>
               <input
                 type="email"
                 name="email"
@@ -177,7 +188,7 @@ export default function Login({ setIsLogin }) {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium">Password</label>
+              <label className="mb-2 block text-sm font-bold text-pink-900">Password</label>
               <input
                 type="password"
                 name="password"
@@ -188,23 +199,20 @@ export default function Login({ setIsLogin }) {
                 placeholder="Enter password"
               />
             </div>
-            <button
-              type="submit"
-              className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
-            >
-              Register
+            <button type="submit" className="pretty-button w-full p-3">
+              Register ✨
             </button>
-            <p className="text-sm text-center">
+            <p className="text-center text-sm text-pink-900/75">
               Have an account?{' '}
               <span
                 onClick={() => setShowLogin(true)}
-                className="text-blue-500 hover:text-blue-700 cursor-pointer"
+                className="cursor-pointer font-bold text-pink-600 hover:text-fuchsia-600"
               >
                 Login now
               </span>
             </p>
-            {err && <p className="text-red-500 text-center">{err}</p>}
-            {success && <p className="text-green-500 text-center">{success}</p>}
+             {err && <p className="rounded-2xl bg-rose-100 p-3 text-center text-sm font-semibold text-rose-600">{err}</p>}
+            {success && <p className="rounded-2xl bg-emerald-100 p-3 text-center text-sm font-semibold text-emerald-600">{success}</p>}
           </form>
         )}
       </div>

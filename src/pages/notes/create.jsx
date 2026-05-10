@@ -51,12 +51,20 @@ export default function CreateNote({ setIsLogin }) {
   return (
     <div className="min-h-screen">
       <NavBar setIsLogin={setIsLogin} />
-      <div className="min-h-[calc(100vh-64px)] flex items-center justify-center bg-gradient-to-r from-white to-blue-400">
-        <div className="max-w-2xl mx-auto p-6">
-          <h1 className="text-3xl font-bold text-center text-white mb-6 drop-shadow-lg">Create a New Note</h1>
-          <form onSubmit={handleSubmit} className="bg-gradient-to-br from-gray-400 to-blue-800 rounded-x1 shadow-2xl p-9 space-y-6">
-            <div>
-              <label className="block text-sm font-medium text-gray-200 mb-2">Title</label>
+      <main className="dreamy-page flex min-h-[calc(100vh-80px)] items-center justify-center px-4 py-12">
+        <div className="w-full max-w-2xl">
+          <div className="mb-8 text-center">
+            <p className="text-sm font-bold uppercase tracking-[0.45em] text-pink-400">Pretty planner</p>
+            <h1 className="mt-3 bg-gradient-to-r from-rose-500 via-pink-500 to-fuchsia-600 bg-clip-text text-5xl font-black text-transparent">
+              Create a New Note
+            </h1>
+          </div>
+
+          <form onSubmit={handleSubmit} className="glass-card relative overflow-hidden rounded-[2rem] p-8 space-y-6">
+            <div className="absolute -right-14 -top-14 h-40 w-40 rounded-full bg-pink-200/70 blur-2xl" />
+            <div className="absolute -bottom-14 -left-14 h-40 w-40 rounded-full bg-fuchsia-200/60 blur-2xl" />
+            <div className="relative">
+              <label className="mb-2 block text-sm font-bold text-pink-900">Title</label>
               <input
                 type="text"
                 value={title}
@@ -66,8 +74,8 @@ export default function CreateNote({ setIsLogin }) {
                 required
               />
             </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-200 mb-2">Content</label>
+            <div className="relative">
+              <label className="mb-2 block text-sm font-bold text-pink-900">Content</label>
               <textarea
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
@@ -77,8 +85,8 @@ export default function CreateNote({ setIsLogin }) {
                 required
               />
             </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-200 mb-2">Date</label>
+            <div className="relative">
+              <label className="mb-2 block text-sm font-bold text-pink-900">Date</label>
               <input
                 type="date"
                 value={date}
@@ -87,15 +95,12 @@ export default function CreateNote({ setIsLogin }) {
                 required
               />
             </div>
-            <button
-              type="submit"
-              className="w-full bg-black text-white p-3 rounded-lg hover:bg-blue-700 transition duration-300 shadow-md hover:shadow-lg"
-            >
-              Create Note
+            <button type="submit" className="pretty-button relative w-full p-3">
+              Create Note ✨
             </button>
           </form>
         </div>
-      </div>
+      </main>
     </div>
   );
 }
